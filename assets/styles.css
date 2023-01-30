@@ -1,5 +1,100 @@
-:root {}
+:root {
+  --page-bg-url: url('/assets/img/background-login-page.jpg');
+  --page-padding-y: 48px;
+  --color-accent: #165A4A;
+  --border-radius: 5px;
+  --form-padding-y: 30px;
+  --form-padding-x: 30px;
+  --form-header-size: 28px;
+  --form-header-lineheight: 39px;
+  --form-label-size: 22px;
+  --form-label-lineheight: 32px;
+  --control-height: 56px;
+  --control-padding-x: 18px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
 
 .page {
+  position: relative;
   min-height: 100vh;
+  padding: var(--page-padding-y) 0;
+  background-image: var(--page-bg-url);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.enter-form {
+  width: 90%;
+  max-width: 574px;
+  margin: 0 auto;
+  padding: var(--form-padding-y) var(--form-padding-x);
+  background: linear-gradient(135.52deg, rgba(255, 255, 255, 0.63) 1.89%, rgba(255, 255, 255, 0.27) 98.97%);
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 10px;
+}
+
+.enter-form__header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.enter-form__header h1 {
+  font-size: var(--form-header-size);
+  line-height: var(--form-header-lineheight);
+  font-weight: 600;
+}
+
+.enter-form__body {
+  margin-bottom: 24px;
+}
+
+.enter-form__footer {
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: var(--form-label-size);
+  line-height: var(--form-label-lineheight);
+}
+
+.form-control {
+  height: var(--control-height);
+}
+
+.form-checkbox {}
+
+.button {
+  height: var(--control-height);
+  cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+  :root {
+    --page-padding-y: 96px;
+    --form-padding-x: 60px;
+    --form-padding-y: 63px;
+    --form-header-size: 36px;
+    --form-header-lineheight: 54px;
+    --form-label-size: 26px;
+    --form-label-lineheight: 39px;
+    --control-height: 68px;
+    --control-padding-x: 22px;
+  }
 }

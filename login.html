@@ -5,6 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
   <div class="page page-login">
@@ -12,11 +16,36 @@
       <div class="enter-form__header">
         <h1>Welcome Back</h1>
       </div>
-      <form action="" class="enter-form__body">
-        <input type="text">
+      <form action="" class="enter-form__body form">
+        <div class="form-group">
+          <label for="userName" class="form-label">Name</label>
+          <input id="userName" type="text" class="form-control" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="userSecret" class="form-label">Password</label>
+          <input id="userSecret" type="password" class="form-control" placeholder="Password" required>
+        </div>
+        <div class="form-group-row">
+          <label for="rememberPassword">
+            <input type="checkbox" class="form-checkbox">
+            <span>Remember password</span>
+          </label>
+          <p>
+            <a href="/reset-password" title="Go to reset password page">Forgot Password?</a>
+          </p>
+        </div>
+        <div class="form-group">
+          <button type="button" class="button button-filled">
+            <span>Log In</span>
+          </button>
+          <button type="button" class="button button-outline">
+            <span>Google icon</span>
+            <span>Log In With Google</span>
+          </button>
+        </div>
       </form>
       <div class="enter-form__footer">
-        <p>Footer</p>
+        <p>Don't have an account? <a href="/signup.html" title="Go to Sign Up page">Sign Up</a></p>
       </div>
     </div>
   </div>
