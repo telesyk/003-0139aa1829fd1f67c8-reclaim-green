@@ -2,12 +2,14 @@
   --page-bg-url: url('/assets/img/background-login-page.jpg');
   --page-padding-y: 48px;
   --color-accent: #165A4A;
+  --color-accent-hover: #17735d;
   --color-lightest: #EAF1F0;
   --border-radius: 5px;
+  --control-border-color: #000000;
   --transition-basic: all 0.2s ease-in-out;
   --control-height: 56px;
   --control-padding-x: 18px;
-  --control-border: 1.5px solid #000000;
+  --control-border: 1.5px solid;
   --control-font-size: 16px;
   --control-lineheight: 24px;
   --control-placeholder-color: #787878;
@@ -124,11 +126,20 @@ body {
   height: var(--control-height);
   padding: 0  var(--control-padding-x);
   border-radius: var(--border-radius);
-  border: var(--control-border);
+  border: var(--control-border) var(--control-border-color);
   background-color: transparent;
   font-size: var(--control-font-size);
   line-height: var(--control-lineheight);
   transition: var(--transition-basic);
+  outline: none;
+}
+
+.form-control:hover,
+.form-control:focus {
+  box-shadow: 0px 4px 8px rgba(62, 128, 176, 0.31);
+}
+.form-control:focus {
+  --control-border-color: #114e7b;
 }
 
 .form-control::placeholder {
@@ -154,7 +165,7 @@ body {
   width: 24px;
   height: 24px;
   margin-right: 8px;
-  border: var(--control-border);
+  border: var(--control-border) var(--control-border-color);
   border-radius: var(--border-radius);
 }
 
@@ -194,7 +205,7 @@ body {
   gap: 16px;
   height: var(--control-height);
   border-radius: var(--border-radius);
-  border: var(--control-border);
+  border: var(--control-border) var(--control-border-color);
   cursor: pointer;
   text-transform: uppercase;
   font-family: 'Poppins', sans-serif;
@@ -211,12 +222,23 @@ body {
   font-size: var(--control-font-size);
   line-height: var(--control-lineheight);
 }
+.button-filled:active,
+.button-filled:focus,
+.button-filled:hover {
+  background-color: var(--color-accent-hover);
+}
 
 .button-outline {
   background-color: transparent;
   color: #000000;
   font-size: var(--button-outline-font-size);
   line-height: var(--button-outline-lineheight);
+}
+.button-outline:active,
+.button-outline:focus,
+.button-outline:hover {
+  color: var(--color-accent);
+  --control-border-color: var(--color-accent);
 }
 
 @media screen and (min-width: 800px) {
