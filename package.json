@@ -1,0 +1,13 @@
+{
+  "name": "reclaim-green-login-sigup-pages",
+  "private": true,
+  "scripts": {
+    "start": "parcel serve login.html --public-url / --dist-dir dist",
+    "build": "parcel build login.html --dist-dir build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  }
+}
