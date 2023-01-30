@@ -2,15 +2,30 @@
   --page-bg-url: url('/assets/img/background-login-page.jpg');
   --page-padding-y: 48px;
   --color-accent: #165A4A;
+  --color-lightest: #EAF1F0;
   --border-radius: 5px;
+  --transition-basic: all 0.2s ease-in-out;
+  --control-height: 56px;
+  --control-padding-x: 18px;
+  --control-border: 1.5px solid #000000;
+  --control-font-size: 16px;
+  --control-lineheight: 24px;
+  --control-placeholder-color: #787878;
+  --regular-text-size: 16px;
+  --regular-text-lineheight: 25px;
   --form-padding-y: 30px;
   --form-padding-x: 30px;
   --form-header-size: 28px;
   --form-header-lineheight: 39px;
-  --form-label-size: 22px;
+  --form-header-margin-y: 25px;
+  --form-label-size: 20px;
   --form-label-lineheight: 32px;
-  --control-height: 56px;
-  --control-padding-x: 18px;
+  --form-label-bottom-gap: 0;
+  --form-icon-checkbox-visibility: 0;
+  --form-body-gap: 18px;
+  --form-buttons-gap: 15px;
+  --button-outline-font-size: 14px;
+  --button-outline-lineheight: 22px;
 }
 
 * {
@@ -21,6 +36,16 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  font-size: var(--regular-text-size);
+  line-height: var(--regular-text-lineheight);
+}
+
+.link {
+  text-decoration: none;
+}
+
+.regular-text {
+  letter-spacing: -0.25px;
 }
 
 .page {
@@ -46,8 +71,10 @@ body {
 }
 
 .enter-form__header {
-  margin-bottom: 40px;
+  margin-bottom: var(--form-header-margin-y);
   text-align: center;
+  color: var(--color-accent);
+  text-transform: uppercase;
 }
 
 .enter-form__header h1 {
@@ -58,10 +85,17 @@ body {
 
 .enter-form__body {
   margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--form-body-gap);
 }
 
 .enter-form__footer {
   text-align: center;
+}
+
+.enter-form .link {
+  color: var(--color-accent);
 }
 
 .form-group {
@@ -69,32 +103,142 @@ body {
   flex-direction: column;
 }
 
+.form-group:last-child {
+  margin-top: 16px;
+}
+
+.form-group-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .form-label {
+  margin-bottom: var(--form-label-bottom-gap);
   font-size: var(--form-label-size);
   line-height: var(--form-label-lineheight);
 }
 
 .form-control {
   height: var(--control-height);
+  padding: 0  var(--control-padding-x);
+  border-radius: var(--border-radius);
+  border: var(--control-border);
+  background-color: transparent;
+  font-size: var(--control-font-size);
+  line-height: var(--control-lineheight);
+  transition: var(--transition-basic);
 }
 
-.form-checkbox {}
+.form-control::placeholder {
+  color: var(--control-placeholder-color);
+  font-weight: 600;
+}
+
+.form-label-checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.form-label-checkbox::after,
+.form-label-checkbox::before {
+  content: '';
+  transition: var(--transition-basic);
+}
+
+.form-label-checkbox::before {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border: var(--control-border);
+  border-radius: var(--border-radius);
+}
+
+.form-label-checkbox::after {
+  display: block;
+  width: 16px;
+  height: 8px;
+  border-bottom: 2px solid var(--color-accent);
+  border-left: 2px solid var(--color-accent);
+  border-radius: 2px;
+  position: absolute;
+  top: 6px;
+  left: 5px;
+  transform: rotate(-45deg);
+  opacity: var(--form-icon-checkbox-visibility);
+}
+
+[type=checkbox]:checked ~ .form-label-checkbox::after {
+  --form-icon-checkbox-visibility: 1;
+}
+
+.form-checkbox {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+}
+
+.form-group .button:not(:last-child) {
+  margin-bottom: var(--form-buttons-gap);
+}
 
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
   height: var(--control-height);
+  border-radius: var(--border-radius);
+  border: var(--control-border);
   cursor: pointer;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.25px;
+  text-decoration: none;
+  transition: var(--transition-basic);
+}
+
+.button-filled {
+  border: none;
+  background-color: var(--color-accent);
+  color: var(--color-lightest);
+  font-size: var(--control-font-size);
+  line-height: var(--control-lineheight);
+}
+
+.button-outline {
+  background-color: transparent;
+  color: #000000;
+  font-size: var(--button-outline-font-size);
+  line-height: var(--button-outline-lineheight);
 }
 
 @media screen and (min-width: 800px) {
   :root {
     --page-padding-y: 96px;
+    --control-height: 68px;
+    --control-padding-x: 22px;
     --form-padding-x: 60px;
     --form-padding-y: 63px;
     --form-header-size: 36px;
     --form-header-lineheight: 54px;
+    --form-header-margin-y: 40px;
     --form-label-size: 26px;
     --form-label-lineheight: 39px;
-    --control-height: 68px;
-    --control-padding-x: 22px;
+    --form-label-bottom-gap: 8px;
+    --regular-text-size: 18px;
+    --regular-text-lineheight: 27px;
+    --form-body-gap: 24px;
+    --form-buttons-gap: 20px;
+    --control-font-size: 20px;
+    --control-lineheight: 30px;
+    --button-outline-font-size: 16px;
+    --button-outline-lineheight: 24px;
   }
 }
